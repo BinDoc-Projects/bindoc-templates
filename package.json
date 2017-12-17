@@ -1,7 +1,7 @@
 {
   "name": "@bindoc/templates",
   "version": "1.0.0-beta.1",
-  "description": "Library QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "Provides an easy way for dynamically creating components by data in angular apps.",
   "main": "./templates.umd.js",
   "module": "./templates.es5.js",
   "es2015": "./templates.js",
@@ -14,6 +14,9 @@
   "repository": {
     "type": "git",
     "url": "https://bitbucket.org/bindoc/bindoc-table"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com"
   },
   "engines": {
     "node": ">= 6.9.0",
