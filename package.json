@@ -1,6 +1,6 @@
 {
   "name": "@bindoc/templates",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "description": "Library QuickStart package.json from the documentation, supplemented with testing support",
   "main": "./templates.umd.js",
   "module": "./templates.es5.js",
