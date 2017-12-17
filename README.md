@@ -4,7 +4,7 @@ Provides an easy way for dynamically creating components by data in angular apps
 
 ## Usage 
 
-For complete sources see: `src/demo/`;
+For complete sources see: [Demo Code](https://github.com/BinDoc-UG/bindoc-templates/tree/master/src/demo);
 
 ### Create a template
 
