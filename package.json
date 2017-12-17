@@ -22,6 +22,7 @@
     "node": ">= 6.9.0",
     "npm": ">= 3.0.0"
   },
+  "license": "MIT",
   "scripts": {
     "clean": "rimraf out-tsc dist",
     "prebuild": "npm run clean",
