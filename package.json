@@ -44,10 +44,12 @@
     "lint": "tslint ./src/**/*.ts -t verbose"
   },
   "peerDependencies": {
+    "@angular/animations": "~4.4.6",
     "@angular/common": "~4.4.6",
     "@angular/core": "~4.4.6"
   },
   "devDependencies": {
+    "@angular/animations": "~4.4.6",
     "@angular/common": "~4.4.6",
     "@angular/compiler": "~4.4.6",
     "@angular/compiler-cli": "~4.4.6",
