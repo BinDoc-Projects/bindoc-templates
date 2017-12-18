@@ -6,6 +6,10 @@ Provides an easy way for dynamically creating components by data in angular apps
 
 For complete sources see: [Demo Code](https://github.com/BinDoc-UG/bindoc-templates/tree/master/src/demo);
 
+```bash
+npm install --save @bindoc/templates 
+```
+
 ### BdTemplate
 
  - `BdTemplate.type` is used to match templates given by `TemplateProvide`
