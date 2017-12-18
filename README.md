@@ -6,11 +6,7 @@ Provides an easy way for dynamically creating components by data in angular apps
 
 For complete sources see: [Demo Code](https://github.com/BinDoc-UG/bindoc-templates/tree/master/src/demo);
 
-### Create a template
-
-Before adding a component dynamically a few things are needed.
-
-#### BdTemplate
+### BdTemplate
 
  - `BdTemplate.type` is used to match templates given by `TemplateProvide`
  - `BdTemplate.setData(data: any)` is used to initialize the provided data object to fill the component custom fields.
@@ -39,7 +35,45 @@ Before adding a component dynamically a few things are needed.
   
 ``` 
 
-#### BdTemplateProvider
+### Insert by BdTemplate
+
+
+```typescript
+  // data class for sample template
+  import {BdTemplateData} from "@bindoc/templates";
+  
+  export class SampleData implements BdTemplateData {
+    
+    public type: string = 'SampleData';
+  
+    constructor(public message: string) {}
+  }
+  
+  
+  
+  // demo.component.ts 
+  
+  import {Component, Type} from "@angular/core";
+  import {BdTemplate} from "@bindoc/templates";
+  import {BdSampleComponent, SampleData} from "./sample-template.component";
+  
+  @Component({
+    template: `
+      <bd-dynamic-template  [data]="sampleData" 
+                            [template]="sampleTemplate">
+      </bd-dynamic-template>
+    `
+  })
+  export class BdDynamicTemplateDemoComponent {
+  
+    public sampleData: SampleData = new SampleData('Some distinct sample data added through extension class');
+    public sampleTemplate: Type<BdTemplate> = BdSampleComponent;
+  }
+
+``` 
+
+### Insert by BdTemplateProvider
+
 
 - `BdTemplateProvider.getTemplates()` provides an array of all possible templates.  
 
@@ -57,8 +91,6 @@ Before adding a component dynamically a few things are needed.
   }
 
 ``` 
-
-### Inserting a template in a component
 
 After setting up templates and a template provider the templates can be inserted into views.
 For filling a template with dynamic content a data class is needed. 

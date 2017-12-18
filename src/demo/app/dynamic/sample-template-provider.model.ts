@@ -4,7 +4,9 @@ import {BdSampleComponent} from "./sample-template.component";
 
 export class BdSampleTemplateProvider implements BdTemplateProvider {
 
-  getTemplates(): Type<BdTemplate>[] {
-    return [BdSampleComponent];
+  public templates: Type<BdTemplate>[] = [BdSampleComponent];
+
+  getTemplates(): Type<BdTemplate> {
+    return this.templates[0];
   }
 }
