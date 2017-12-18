@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {Component} from "@angular/core";
 import {BdTemplate, BdTemplateData} from "templates";
 
 @Component({
@@ -11,23 +11,23 @@ import {BdTemplate, BdTemplateData} from "templates";
   styles: [``]
 })
 export class BdSampleComponent extends BdTemplate {
-
   static type: string = 'SampleData';
 
-  @Input() message: string;
+  public message: string;
 
-  public setData(data: any): void {
-    this.message = data.message;
+  public init(config: BdTemplateData): void {
+    this.message = config.data.message;
   }
 }
 
 
 export class BdSampleData implements BdTemplateData {
   public type: string = 'SampleData';
+  public data: { message?: string };
 
-  constructor(
-    public message: string
-  ) {
-
+  constructor(message: string) {
+    this.data = {
+      message: message
+    };
   }
 }

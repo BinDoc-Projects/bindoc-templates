@@ -1,5 +1,5 @@
 import {Component, ComponentFactoryResolver, Input, OnInit, Type, ViewChild} from "@angular/core";
-import {BdTemplate} from "./abstract-template.model";
+import {BdTemplate, BdTemplateData} from "./abstract-template.model";
 import {BdTemplateHostDirective} from "./template-host.directive";
 
 @Component({
@@ -14,7 +14,7 @@ import {BdTemplateHostDirective} from "./template-host.directive";
 export class BdDynamicTemplateComponent implements OnInit {
 
   @Input() template: Type<BdTemplate>;
-  @Input() data: any;
+  @Input() data: BdTemplateData;
 
   @ViewChild(BdTemplateHostDirective) eTemplateHost: BdTemplateHostDirective;
 
@@ -35,6 +35,6 @@ export class BdDynamicTemplateComponent implements OnInit {
     this.eTemplateHost.viewContainerRef.clear();
     let componentRef = this.eTemplateHost.viewContainerRef.createComponent(component);
 
-    componentRef.instance['data'] = this.data;
+    componentRef.instance.init(this.data);
   }
 }
