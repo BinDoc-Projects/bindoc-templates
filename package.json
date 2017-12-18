@@ -16,7 +16,7 @@
     "url": "https://github.com/BinDoc-UG/bindoc-templates"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.com"
+    "registry": "https://registry.npmjs.org"
   },
   "engines": {
     "node": ">= 6.9.0",
