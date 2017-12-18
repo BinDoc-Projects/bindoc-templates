@@ -9,9 +9,10 @@ For complete sources see: [Demo Code](https://github.com/BinDoc-UG/bindoc-templa
 ### BdTemplate
 
  - `BdTemplate.type` is used to match templates given by `TemplateProvide`
- - `BdTemplate.setData(data: any)` is used to initialize the provided data object to fill the component custom fields.
+ - `BdTemplate.init(config: BdTemplateData)` is used to initialize the provided data object to fill the component custom fields.
 
 ```typescript
+  // custom template implementation 
   
   import {Component} from "@angular/core";
   import {BdTemplate, BdTemplateData} from "@bindoc/templates";
@@ -22,14 +23,11 @@ For complete sources see: [Demo Code](https://github.com/BinDoc-UG/bindoc-templa
       <span>{{message}}</span>
     `
   })
-  export class SampleComponent extends BdTemplate {
-  
-    static type: string = 'SampleData';
-   
+  export class SampleComponent extends BdTemplate {  
     public message: string;
      
-    public setData(data: any): void {
-      this.message = data.message;
+    public init(config: BdTemplateData): void {
+      this.message = config.data.message;
     }
   }
   
@@ -40,13 +38,17 @@ For complete sources see: [Demo Code](https://github.com/BinDoc-UG/bindoc-templa
 
 ```typescript
   // data class for sample template
+  
   import {BdTemplateData} from "@bindoc/templates";
   
   export class SampleData implements BdTemplateData {
     
     public type: string = 'SampleData';
+    public data: { message?: string };
   
-    constructor(public message: string) {}
+    constructor(message: string) {
+      this.data = { message: message };
+    }
   }
   
   
@@ -55,7 +57,7 @@ For complete sources see: [Demo Code](https://github.com/BinDoc-UG/bindoc-templa
   
   import {Component, Type} from "@angular/core";
   import {BdTemplate} from "@bindoc/templates";
-  import {BdSampleComponent, SampleData} from "./sample-template.component";
+  import {SampleComponent, SampleData} from "./sample-template.component";
   
   @Component({
     template: `
@@ -67,7 +69,7 @@ For complete sources see: [Demo Code](https://github.com/BinDoc-UG/bindoc-templa
   export class BdDynamicTemplateDemoComponent {
   
     public sampleData: SampleData = new SampleData('Some distinct sample data added through extension class');
-    public sampleTemplate: Type<BdTemplate> = BdSampleComponent;
+    public sampleTemplate: Type<BdTemplate> = SampleComponent;
   }
 
 ``` 
@@ -99,7 +101,8 @@ For filling a template with dynamic content a data class is needed.
 
 ```typescript
   // data class for sample template
-  
+  import {BdTemplateData} from "@bindoc/templates";
+
   export class SampleData implements BdTemplateData {
     
     public type: string = 'SampleData';
