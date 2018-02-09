@@ -1,5 +1,9 @@
 export abstract class BdTemplate {
-  public static type?: string;
+
+  /**
+   * Useless initialization just to fix the build error occurring without.
+   */
+  public static type: string = 'AbstractTemplate';
 
   public abstract init(config: BdTemplateData): void;
 }
