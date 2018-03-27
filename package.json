@@ -1,6 +1,6 @@
 {
   "name": "@bindoc/templates",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Provides an easy way for dynamically creating components by data in angular apps.",
   "main": "./templates.umd.js",
   "module": "./templates.es5.js",
