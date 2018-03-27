@@ -12,6 +12,12 @@ import {BdTemplate} from "templates";
     </bd-dynamic-template-factory>
     <hr>
     <h1>Template</h1>
+    <button (click)="setSampleData(1)">
+      <span>Set Template 1</span>
+    </button>
+    <button (click)="setSampleData(2)">
+      <span>Set Template 2</span>
+    </button>
     <bd-dynamic-template  [data]="sampleData" 
                           [template]="sampleTemplate">
     </bd-dynamic-template>
@@ -25,4 +31,12 @@ export class BdDynamicTemplateDemoComponent {
   public sampleData: BdSampleData = new BdSampleData('Some distinct sample data added through extension class');
   public sampleTemplateProvider: BdSampleTemplateProvider = new BdSampleTemplateProvider();
   public sampleTemplate: Type<BdTemplate> = BdSampleComponent;
+
+  public setSampleData(type: number) {
+    if(type === 1) {
+      this.sampleData = new BdSampleData('TemplateData 1 active');
+    } else {
+      this.sampleData = new BdSampleData('TemplateData 2 active');
+    }
+  }
 }

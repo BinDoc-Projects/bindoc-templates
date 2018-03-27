@@ -1,4 +1,4 @@
-import {Component, ComponentFactoryResolver, Input, OnInit, Type, ViewChild} from "@angular/core";
+import {Component, ComponentFactoryResolver, Input, OnChanges, OnInit, Type, ViewChild} from "@angular/core";
 import {BdTemplate, BdTemplateData} from "./abstract-template.model";
 import {BdTemplateHostDirective} from "./template-host.directive";
 
@@ -6,12 +6,9 @@ import {BdTemplateHostDirective} from "./template-host.directive";
   selector: 'bd-dynamic-template',
   template: `
     <div template-host></div>
-  `,
-  styles: [`
-  
-  `]
+  `
 })
-export class BdDynamicTemplateComponent implements OnInit {
+export class BdDynamicTemplateComponent implements OnChanges {
 
   @Input() template: Type<BdTemplate>;
   @Input() data: BdTemplateData;
@@ -24,14 +21,14 @@ export class BdDynamicTemplateComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-    if(this.template) {
-      this.loadTemplate(this.template);
+  ngOnChanges(changes: any): void {
+    if(changes.template || changes.data) {
+      this.loadTemplate();
     }
   }
 
-  public loadTemplate(template: Type<BdTemplate>) {
-    let component = this.componentFactoryResolver.resolveComponentFactory(template);
+  public loadTemplate() {
+    let component = this.componentFactoryResolver.resolveComponentFactory(this.template);
     this.eTemplateHost.viewContainerRef.clear();
     let componentRef = this.eTemplateHost.viewContainerRef.createComponent(component);
 
