@@ -1,6 +1,6 @@
-import {Component, ComponentFactoryResolver, Input, OnChanges, OnInit, Type, ViewChild} from "@angular/core";
-import {BdTemplate, BdTemplateData} from "./abstract-template.model";
-import {BdTemplateHostDirective} from "./template-host.directive";
+import {Component, ComponentFactoryResolver, Input, OnChanges, Type, ViewChild} from '@angular/core';
+import {BdTemplate, BdTemplateData} from './abstract-template.model';
+import {BdTemplateHostDirective} from './template-host.directive';
 
 @Component({
   selector: 'bd-dynamic-template',
