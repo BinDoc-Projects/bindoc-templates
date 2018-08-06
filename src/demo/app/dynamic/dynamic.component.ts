@@ -1,4 +1,4 @@
-import {Component, Type} from "@angular/core";
+import {Component, ComponentRef, Type} from '@angular/core';
 import {BdSampleComponent, BdSampleData} from "./sample-template.component";
 import {BdSampleTemplateProvider} from "./sample-template-provider.model";
 import {BdTemplate} from "templates";
@@ -19,7 +19,8 @@ import {BdTemplate} from "templates";
       <span>Set Template 2</span>
     </button>
     <bd-dynamic-template  [data]="sampleData" 
-                          [template]="sampleTemplate">
+                          [template]="sampleTemplate" 
+                          (templateChange)="onTemplateChange($event)">
     </bd-dynamic-template>
   `,
   styles: [`
@@ -31,6 +32,10 @@ export class BdDynamicTemplateDemoComponent {
   public sampleData: BdSampleData = new BdSampleData('Some distinct sample data added through extension class');
   public sampleTemplateProvider: BdSampleTemplateProvider = new BdSampleTemplateProvider();
   public sampleTemplate: Type<BdTemplate> = BdSampleComponent;
+
+  public onTemplateChange(event: ComponentRef<BdTemplate>) {
+    console.log(event)
+  }
 
   public setSampleData(type: number) {
     if(type === 1) {

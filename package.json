@@ -59,7 +59,7 @@
     "rollup": "0.55.x",
     "rollup-plugin-sourcemaps": "0.4.x",
     "rollup-plugin-uglify": "3.0.x",
-    "rxjs": "5.5.x",
+    "rxjs": "5.x.x",
     "systemjs": "0.21.x",
     "tslint": "4.4.x",
     "typescript": "2.5.x",
