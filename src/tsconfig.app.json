@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "baseUrl": "./",
+    "module": "es2015",
+    "types": [],
+    "paths": {
+      "@bindoc/templates": [ "../templates-lib/public_api" ]
+    }
+  },
+  "angularCompilerOptions": {
+    "paths": {
+      "@bindoc/templates": [ "../templates-lib/public_api" ]
+    }
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}

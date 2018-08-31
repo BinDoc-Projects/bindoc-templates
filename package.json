@@ -1,45 +1,21 @@
 {
-  "name": "@bindoc/templates",
-  "version": "2.0.0",
-  "description": "Provides an easy way for dynamically creating components by data in angular apps.",
-  "main": "./templates.umd.js",
-  "module": "./templates.es5.js",
-  "es2015": "./templates.js",
-  "typings": "./templates.d.ts",
-  "author": "Sven Seemann",
-  "bugs": {
-    "url": "https://github.com/BinDoc-Projects/bindoc-templates/issues",
-    "email": "sven.seemann@bindoc.de"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BinDoc-Projects/bindoc-templates"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
-  "engines": {
-    "node": ">= 6.9.0",
-    "npm": ">= 3.0.0"
-  },
+  "name": "templates",
+  "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf out-tsc dist",
-    "prebuild": "npm run clean",
-    "build": "node build.js",
-    "build-demo": "tsc -p src/demo/",
-    "build-demo:watch": "tsc -p src/demo/ -w",
-    "serve": "lite-server -c=bs-config.json",
-    "prestart": "npm run build-demo",
-    "start": "concurrently \"npm run build-demo:watch\" \"npm run serve\"",
-    "lint": "tslint ./src/**/*.ts -t verbose"
+    "ng": "ng",
+    "start": "ng serve dev",
+    "build": "ng build package --prod",
+    "build:app": "cpr dist/templates-lib src/@bindoc/templates && ng build package && rimraf src/@bindoc",
+    "build:app:aot": "cpr dist/templates-lib src/@bindoc/templates && ng build package --prod && rimraf src/@bindoc",
+    "build:lib": "rimraf dist && ng-packagr -p templates-lib/package.json",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "packagr": "ng-packagr -p ng-package.json"
   },
-  "peerDependencies": {
-    "@angular/animations": "6.x.x",
-    "@angular/common": "6.x.x",
-    "@angular/core": "6.x.x"
-  },
-  "devDependencies": {
+  "private": true,
+  "dependencies": {
     "@angular/animations": "6.x.x",
     "@angular/common": "6.x.x",
     "@angular/compiler": "6.x.x",
@@ -48,22 +24,31 @@
     "@angular/platform-browser": "6.x.x",
     "@angular/platform-browser-dynamic": "6.x.x",
     "@angular/router": "6.x.x",
-    "@types/node": "10.x.x",
-    "camelcase": "5.x.x",
-    "concurrently": "3.x.x",
     "core-js": "2.x.x",
-    "glob": "7.x.x",
-    "lite-server": "2.2.x",
-    "replace": "0.x.x",
-    "rimraf": "2.6.x",
-    "rollup": "0.55.x",
-    "rollup-plugin-sourcemaps": "0.4.x",
-    "rollup-plugin-uglify": "3.0.x",
-    "rxjs": "6.x.x",
-    "systemjs": "0.21.x",
-    "tslint": "5.x.x",
-    "typescript": "2.7.x",
-    "zone.js": "0.8.x"
+    "rxjs": "6.3.0",
+    "zone.js": "0.x.x"
   },
-  "dependencies": {}
+  "devDependencies": {
+    "@angular/cli": "6.x.x",
+    "@angular/compiler-cli": "6.x.x",
+    "@angular-devkit/build-angular": "0.7.x",
+    "@angular/language-service": "6.x.x",
+    "@types/jasmine": "2.8.x",
+    "@types/jasminewd2": "2.0.x",
+    "@types/node": "6.0.x",
+    "codelyzer": "4.x.x",
+    "cpr": "^3.0.1",
+    "jasmine-core": "2.8.x",
+    "jasmine-spec-reporter": "4.2.x",
+    "karma": "2.0.x",
+    "karma-chrome-launcher": "2.2.x",
+    "karma-coverage-istanbul-reporter": "1.x.x",
+    "karma-jasmine": "1.1.x",
+    "karma-jasmine-html-reporter": "0.x.x",
+    "ng-packagr": "4.x.x",
+    "protractor": "5.1.x",
+    "ts-node": "4.1.x",
+    "tslint": "5.9.x",
+    "typescript": "2.9.x"
+  }
 }

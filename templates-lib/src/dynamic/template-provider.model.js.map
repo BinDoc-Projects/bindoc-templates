@@ -1,0 +1,1 @@
+{"version":3,"file":"template-provider.model.js","sourceRoot":"","sources":["template-provider.model.ts"],"names":[],"mappings":"","sourcesContent":["import {Type} from \"@angular/core\";\nimport {BdTemplate} from \"./abstract-template.model\";\n\nexport interface BdTemplateProvider {\n\n  templates?: Type<BdTemplate>[]\n\n  getTemplates(type: string): Type<BdTemplate>;\n}\n"]}

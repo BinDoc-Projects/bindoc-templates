@@ -1,0 +1,33 @@
+{
+  "name": "@bindoc/templates",
+  "version": "2.0.0",
+  "description": "Provides an easy way for dynamically creating components by data in angular apps.",
+  "author": "Sven Seemann",
+  "bugs": {
+    "url": "https://github.com/BinDoc-Projects/bindoc-templates/issues",
+    "email": "sven.seemann@bindoc.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BinDoc-Projects/bindoc-templates"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "engines": {
+    "node": ">= 6.9.0",
+    "npm": ">= 3.0.0"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/core": "6.x.x"
+  },
+  "ngPackage": {
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "dest": "../dist/templates-lib",
+    "workingDirectory": "../.ng_build",
+    "lib": {
+      "entryFile": "public_api.ts"
+    }
+  }
+}
