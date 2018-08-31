@@ -41,14 +41,17 @@ const es2015Entry = path.join(es2015OutputFolder, `${libName}.js`);
 const rollupBaseConfig = {
   output: {
     name: camelCase(libName),
-    sourcemap: true,
     globals: {
       '@angular/core': 'ng.core'
     },
+    sourcemap: true
   },
   external: [
     '@angular/core',
     '@angular/http',
+    'rxjs',
+    'rxjs/add/operator/map',
+    'rxjs/add/operator/toPromise',
     '@angular/flex-layout',
     '@angular/common',
     '@angular/platform-browser/animations',
