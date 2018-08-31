@@ -1,6 +1,6 @@
 {
   "name": "@bindoc/templates",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Provides an easy way for dynamically creating components by data in angular apps.",
   "author": "Sven Seemann",
   "bugs": {
