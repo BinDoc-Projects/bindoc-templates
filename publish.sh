@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CURRENT_VERSION=$(cat package.json \
+CURRENT_VERSION=$(cat templates-lib/package.json \
   | grep version \
   | head -1 \
   | awk -F: '{ print $2 }' \
@@ -12,15 +12,20 @@ read NEXT_VERSION
 
 # STEP NPM
 echo "Setting package.json version:     $NEXT_VERSION"
+cd templates-lib
 npm version ${NEXT_VERSION}
+cd ..
+
+git add templates-lib/package.json
+git commit -m "bumped version: $NEXT_VERSION"
 
 # STEP BUILD
 set -e  # terminates on error
-npm run build
+npm run build:lib
 set +e
 
 # STEP PUBLISH
 echo "Publish version:                  $NEXT_VERSION"
 git push --follow-tags
 
-npm publish dist --access public
+npm publish dist/templates-lib --access public
